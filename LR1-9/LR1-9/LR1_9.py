@@ -42,3 +42,12 @@ if a < b:
 else:
     for i in range(a, b - 1, -1):
         print(i)
+
+#5
+s = input('Enter word with two+ h: ')
+e1 = s[:s.find('h')]
+e2 = s[s.find('h'):s.rfind('h') + 1]
+e3 = s[s.rfind('h') + 1:]
+s = e1 + e2[::-1] + e3
+
+print(s)
