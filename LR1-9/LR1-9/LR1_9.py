@@ -31,3 +31,14 @@ else:
 #3 
 a = int(input('Enter number: '))
 print(a % 10)
+
+#4
+a = int(input('Enter number A: '))
+b = int(input('Enter number B: '))
+
+if a < b:
+    for i in range(a, b + 1):
+        print(i)
+else:
+    for i in range(a, b - 1, -1):
+        print(i)
