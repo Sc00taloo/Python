@@ -27,3 +27,7 @@ if x > 0 and x < 9 and y > 0 and y < 9:
         print('Error')
 else:
     print('Error')
+
+#3 
+a = int(input('Enter number: '))
+print(a % 10)
