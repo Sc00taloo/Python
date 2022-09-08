@@ -51,3 +51,10 @@ e3 = s[s.rfind('h') + 1:]
 s = e1 + e2[::-1] + e3
 
 print(s)
+
+#6
+n = int(input('Enter N: '))
+i = 1
+while (i ** 2) < n:
+    print(i ** 2)
+    i += 2
