@@ -58,3 +58,14 @@ i = 1
 while (i ** 2) < n:
     print(i ** 2)
     i += 2
+
+#8
+def power(a, n):
+    if n == 0:
+        return 1
+    else:
+        return a * power(a, n - 1)
+
+a = float(input('Enter a: '))
+n = int(input('Enter n: '))
+print(f'a^n: {power(a, n)}')
