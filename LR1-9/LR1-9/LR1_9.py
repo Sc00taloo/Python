@@ -69,3 +69,19 @@ def power(a, n):
 a = float(input('Enter a: '))
 n = int(input('Enter n: '))
 print(f'a^n: {power(a, n)}')
+
+#9
+n = int(input('Enter row number: '))
+m = int(input('Enter column number: '))
+print('Enter array: ')
+a = [[int(j) for j in input().split()] for i in range(n)]
+n1 = 0
+m1 = 0
+max = a[0][0]
+for i in range(n):
+    for j in range(m):
+        if a[i][j] > max:
+            max = a[i][j]
+            n1 = i
+            m1 = j
+print(f'Row max el: {n1}, column max el: {m1}')
