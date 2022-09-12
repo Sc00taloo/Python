@@ -14,3 +14,14 @@ while True:
         print('NO')
         TrueNumbers &= A - B        
 print(' '.join([str(x) for x in sorted(TrueNumbers)]))
+
+#11
+X = int(input())
+Y = {}
+for i in range(X):
+    Line = input().split()
+    for Word in Line:
+        Y[Word] = Y.get(Word, 0) + 1
+MaxValue = max(Y.values())
+Freq = [k for k, prov in Y.items() if prov == MaxValue]
+print(min(Freq))
