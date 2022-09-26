@@ -37,3 +37,14 @@ for i in range(n):
 for j in range(max(y.values()), 0, -1):
     for words in sorted(x for x in y if y[x] == j):
         print(words)
+
+#11.7
+n = int(input("Enter number country: "))
+countrys = {}
+for i in range(n):
+    country, *cities = input().split()
+    for k in cities:
+        countrys[k] = country
+m = int(input("Enter number cities: "))
+for j in range(m):
+    print(countrys[input()])
