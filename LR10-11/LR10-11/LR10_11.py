@@ -15,7 +15,7 @@ while True:
         TrueNumbers &= A - B        
 print(' '.join([str(x) for x in sorted(TrueNumbers)]))
 
-#11
+#11.4
 X = int(input())
 Y = {}
 for i in range(X):
@@ -25,3 +25,15 @@ for i in range(X):
 MaxValue = max(Y.values())
 Freq = [k for k, prov in Y.items() if prov == MaxValue]
 print(min(Freq))
+
+#11.6
+n = int(input("Enter number col: "))
+y = {}
+for i in range(n):
+    Line = input().split()
+    for Word in Line:
+        y[Word] = y.get(Word, 0) + 1
+
+for j in range(max(y.values()), 0, -1):
+    for words in sorted(x for x in y if y[x] == j):
+        print(words)
