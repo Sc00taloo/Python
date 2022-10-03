@@ -1,3 +1,18 @@
+#6
+class Animal():
+    name=""
+    def __init__(self):
+        print("Родилась собака")
+
+class Dog(Animal):
+    def makeNoise(self):
+        Animal.__init__(self)
+        print(self.name, "говорит гав")
+
+myDog = Dog()
+myDog.name = "Kirieshka"
+myDog.makeNoise()
+
 #5
 class Animal():
     name=""
