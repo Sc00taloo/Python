@@ -1,3 +1,45 @@
+#7
+class Animal():
+    name=""
+    def __init__(self):
+        print("Родилось животное")
+
+class Cat(Animal):
+    def makeNoise(self):
+        print(self.name, "говорит мяу")
+    def eat(self):
+        print("Намнём")
+
+class Dog(Animal):
+    def makeNoise(self):
+        print(self.name, "говорит гав")
+    def eat(self):
+        print("Намнём")
+
+class simpleAnimal(Animal):
+    def makeNoise(self):
+        print(self.name, "говорит гррр")
+    def eat(self):
+        print("Намнём")
+
+myCat = Cat()
+myDog = Dog()
+myDog2 = Dog()
+myAnimal = simpleAnimal()
+myCat.name = "Chmonya"
+myDog.name = "Kirieshka"
+myDog2.name = "Bimbos"
+myAnimal.name = "Pudg"
+
+myCat.makeNoise()
+myCat.eat()
+myDog.makeNoise()
+myDog.eat()
+myDog2.makeNoise()
+myDog2.eat()
+myAnimal.makeNoise()
+myAnimal.eat()
+
 #6
 class Animal():
     name=""
