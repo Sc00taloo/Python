@@ -1,3 +1,18 @@
+#5
+class Animal():
+    name=""
+    def __init__(self):
+        print("Родился кот")
+
+class Cat(Animal):
+    def makeNoise(self):
+        Animal.__init__(self)
+        print(self.name, "говорит мяу")
+
+myCat = Cat()
+myCat.name = "Chmonya"
+myCat.makeNoise()
+
 #4
 class Point:  
     def __init__(self, x: int, y: int):
