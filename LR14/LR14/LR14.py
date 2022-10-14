@@ -1,3 +1,45 @@
+#3
+import tkinter
+
+def click():
+    a = txt.get()
+    if variable.get() == 'txt':
+        label2.config(text = "Сохранено")
+        f = open('TextTXT.txt','w+')
+        f.write(a)
+        f.close()
+    elif variable.get() == 'HTML':
+        label2.config(text = "Сохранено")
+        f = open('TextHTML.html','w+')
+        f.write(a)
+        f.close()
+    else:
+        label2.config(text = "Выберите формат!")
+
+OptionList = ["Выпадающий список","txt","HTML"]
+
+window = tkinter.Tk()
+frame = tkinter.Frame(window)
+frame.pack()
+
+variable = tkinter.StringVar(frame)
+variable.set(OptionList[0])
+
+opt = tkinter.OptionMenu(frame, variable, *OptionList)
+
+label1 = tkinter.Label(frame, text = 'Введите текст:')
+label2 = tkinter.Label(frame)
+txt = tkinter.Entry(frame)
+button = tkinter.Button(frame, text='Сохранить', command = click)
+
+label1.pack()
+txt.pack()
+label2.pack()
+button.pack(side = 'left')
+opt.pack(side = 'right')
+
+window.mainloop()
+
 #2
 import tkinter
 import random
@@ -34,7 +76,7 @@ label4 = tkinter.Label(frame)
 txt = tkinter.Entry(frame)
 
 random_word()
- 
+
 label1.pack()
 label2.pack()
 txt.pack()
@@ -54,7 +96,7 @@ window.mainloop()
 import tkinter
 
 def click():
-    forengeit.set(((5/9 * (float(entry.get())-32))))
+   forengeit.set(((5/9 * (float(entry.get())-32))))
 
 window = tkinter.Tk()
 frame = tkinter.Frame(window)
