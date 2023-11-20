@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import math
+import numpy as np
 
 flag = False
 while flag == False:
@@ -56,4 +57,21 @@ plt.plot(XN, YN, "--", color='green')
 plt.plot(X00, Y00, "--", color='yellow')
 plt.plot(X11, Y11, "--", color='yellow')
 plt.show()
+
+fig, axs = plt.subplots(nrows= 1, ncols= 1)
+x = np.linspace(-7, 7, 10000)
+yblue = 2*np.sqrt((-abs(abs(x)-1))*abs(3-abs(x))/((abs(x)-1)*(3-abs(x))))*(1+abs(abs(x)-3)/(abs(x)-3))*np.sqrt(1-(x/7)**2)+(5+0.97*(abs(x-0.5)+abs(x+0.5))-3*(abs(x-0.75)+abs(x+0.75)))*(1+abs(1-abs(x))/(1-abs(x)))
+#print(yblue)
+ygreen = (2.71052+1.5-0.5*np.abs(x)-1.35526*np.sqrt(4-(np.abs(x)-1)**2))*np.sqrt(abs(abs(x)-1)/(abs(x)-1))+0.9
+#print(ygreen)
+yred = (-3)*np.sqrt(1-(x/7)**2)*np.sqrt(abs(abs(x)-4)/(abs(x)-4))
+#print(yred)
+yorange = np.abs(x/2)-0.0913722*x**2-3+np.sqrt(1-(np.abs(abs(x)-2)-1)**2)
+#print(yorange)
+plt.plot(x, yblue, color='blue')
+plt.plot(x, ygreen, color='green')
+plt.plot(x, yred, color='red')
+plt.plot(x, yorange, color='orange')
+plt.show()
+
 
