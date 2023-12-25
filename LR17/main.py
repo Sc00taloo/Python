@@ -2,20 +2,20 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-flag = False
-while flag == False:
+flag = True
+while flag:
     try:
         a = int(input("Enter a: "))
-        flag = True
+        flag = False
     except ValueError:
         print("Введите число")
 
-flag = False
-while flag == False:
+flag = True
+while flag:
     try:
         b = int(input("Enter b: "))
         n = 1 / b
-        flag = True
+        flag = False
     except ZeroDivisionError:
         print("На ноль делить нельзя")
     except ValueError:
@@ -72,6 +72,11 @@ plt.plot(x, yblue, color='blue')
 plt.plot(x, ygreen, color='green')
 plt.plot(x, yred, color='red')
 plt.plot(x, yorange, color='orange')
+ax = plt.gca()
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 plt.show()
 
 

@@ -153,51 +153,52 @@ def sql_50_insert_update_delete(con):
         print(value)
     #3
     print()
-    for value in cursorObj.execute("SELECT * FROM visit_logs"):
+    for value in cursorObj.execute("SELECT id_visit, id_host, id_an FROM visit_logs WHERE id_visit = 1"):
         print(value)
     #4
     print()
-    for value in cursorObj.execute("SELECT * FROM diseases"):
+    for value in cursorObj.execute("SELECT * FROM diseases WHERE diseases_name = 'Cold'"):
         print(value)
     #5
     print()
-    for value in cursorObj.execute("SELECT * FROM assigned_proced WHERE id_visit = 1"):
+    for value in cursorObj.execute("SELECT date_event FROM assigned_proced WHERE id_visit = 1"):
         print(value)
     #6
     print()
-    for value in cursorObj.execute("SELECT * FROM med_history WHERE diseases_name = 'Gastritis'"):
+    for value in cursorObj.execute("SELECT illness_date, diseases_name FROM med_history WHERE diseases_name = 'Gastritis'"):
         print(value)
     #7
     print()
-    for value in cursorObj.execute("SELECT * FROM recipes"):
+    for value in cursorObj.execute("SELECT id_re FROM recipes WHERE dosage = '0.25% solution' and id_visit = 3"):
         print(value)
     #8
     print()
-    for value in cursorObj.execute("SELECT * FROM analyzes"):
+    for value in cursorObj.execute("SELECT id_ana, analysis_name FROM analyzes WHERE analysis_name = 'General blood test'"):
         print(value)
     #9
     print()
-    for value in cursorObj.execute("SELECT * FROM vaccinations"):
+    for value in cursorObj.execute("SELECT id_vac, id_an FROM vaccinations"):
         print(value)
     #10
     print()
-    print(cursorObj.execute("SELECT * FROM treatment").rowcount)
+    for value in cursorObj.execute("SELECT id_tre, id_visit,date_treatment FROM treatment WHERE id_tre = 1 AND id_tre = 2"):
+        print(value)
 
     #11
     print()
-    cursorObj.execute('UPDATE list_of_hosts SET name = "Rogers" where id_host = 512')
+    cursorObj.execute('UPDATE list_of_hosts SET firstName = "Rogers" where id_host = 512')
     #12
     print()
-    cursorObj.execute('UPDATE list_of_hosts SET name = "Serega" where id_host = 123')
+    cursorObj.execute('UPDATE list_of_hosts SET firstName = "Serega", lastName = "Nikolaevich" where id_host = 123')
     #13
     print()
-    cursorObj.execute('UPDATE list_of_hosts SET name = "Birka" where id_host = 999')
+    cursorObj.execute('UPDATE list_of_hosts SET firstName = "Birka", address = "st. Stavropolsk 122" where id_host = 999')
     #14
     print()
-    cursorObj.execute('UPDATE list_of_hosts SET name = "Finka" where id_host = 421')
+    cursorObj.execute('UPDATE list_of_hosts SET lastName = "Maslyonovich" where id_host = 421 and id_host = 999')
     #15
     print()
-    cursorObj.execute('UPDATE list_of_hosts SET name = "Liam" where id_host = 6')
+    cursorObj.execute('UPDATE list_of_hosts SET firstName = "Liam" where id_host = 6')
     #16
     print()
     cursorObj.execute('UPDATE vaccinations SET vaccination_name = "Flea and tick vaccination" where id_an = 3')
@@ -206,22 +207,22 @@ def sql_50_insert_update_delete(con):
     cursorObj.execute('UPDATE visit_logs SET id_visit = 2 where id_host = 5')
     #18
     print()
-    cursorObj.execute('UPDATE visit_logs SET id_an = 5 where id_host = 1')
+    cursorObj.execute('UPDATE visit_logs SET id_an = 5 where id_host = 1 and id_visit = 1')
     #19
     print()
     cursorObj.execute('UPDATE visit_logs SET notes = "Sniky" where id_visit = 5')
     #20
     print()
-    cursorObj.execute('UPDATE visit_logs SET id_visit = 4 where id_host = 3')
+    cursorObj.execute('UPDATE visit_logs SET id_visit = 4 and notes = "Love toy" where id_host = 3 or id_host = 1')
     #21
     print()
     cursorObj.execute('UPDATE med_history SET id_an = 3 where id_med = 1')
     #22
     print()
-    cursorObj.execute('UPDATE med_history SET id_an = 5 where id_host = 2')
+    cursorObj.execute('UPDATE med_history SET illness_date = "2023-04-20" where id_host = 2')
     #23
     print()
-    cursorObj.execute('UPDATE recipes SET drug_name = "Amoxicillin" where id_visit = 4')
+    cursorObj.execute('UPDATE recipes SET drug_name = "Amoxicillin" where id_visit = 4 and dosage = "5 mg per 1 kg of body"')
     #24
     print()
     cursorObj.execute('UPDATE recipes SET drug_name = "Metronidazole" where id_visit = 1')
@@ -230,42 +231,41 @@ def sql_50_insert_update_delete(con):
     cursorObj.execute('UPDATE treatment SET id_visit = 1 where id_treat = 4')
     #26
     print()
-    cursorObj.execute('UPDATE treatment SET id_visit = 4 where id_treat = 2')
+    cursorObj.execute('UPDATE treatment SET id_visit = 4 where id_treat = 2 AND id_treat = 4')
     #27
     print()
-    cursorObj.execute('UPDATE assigned_proced SET procedure_name = "Ultrasound examination" where id_proced = 3')
+    cursorObj.execute('UPDATE assigned_proced SET procedure_name = "Ultrasound examination", date_event = "2023-05-12"  where id_proced = 3')
     #28
     print()
     cursorObj.execute('UPDATE assigned_proced SET procedure_name = "X-ray" where id_proced = 5')
     #29
     print()
-    cursorObj.execute('UPDATE list_of_animals SET name = "Chmonya" where id_an = 2')
+    cursorObj.execute('UPDATE list_of_animals SET name = "Chmonya", breed = "black" where id_an = 2')
     #30
     print()
     cursorObj.execute('UPDATE list_of_animals SET name = "Lopushok" where id_an = 4')
     #31
     print()
-    for value in cursorObj.execute("SELECT * FROM list_of_hosts"):
+    for value in cursorObj.execute("SELECT * FROM list_of_hosts WHERE firstname = 'Levi'"):
         print(value)
     #32
     print()
-    for value in cursorObj.execute("SELECT * FROM vaccinations"):
-        print(value)
+    print(cursorObj.execute("SELECT id_vac, vaccination_name FROM vaccinations").rowcount)
     #33
     print()
-    for value in cursorObj.execute("SELECT * FROM visit_logs"):
+    for value in cursorObj.execute("SELECT * FROM visit_logs WHERE id_host = 5"):
         print(value)
     #34
     print()
-    for value in cursorObj.execute("SELECT * FROM med_history"):
+    for value in cursorObj.execute("SELECT id_med, diseases_name, illness_date date FROM med_history WHERE id_med = 2"):
         print(value)
     #35
     print()
-    for value in cursorObj.execute("SELECT * FROM recipes"):
+    for value in cursorObj.execute("SELECT id_re FROM recipes INNER JOIN visit_logs ON recipes.id_visit = visit_logs.id_visit WHERE drug_name = 'Ivermectin'"):
         print(value)
     #36
     print()
-    for value in cursorObj.execute("SELECT * FROM treatment"):
+    for value in cursorObj.execute("SELECT * FROM treatment WHERE id_tre = 5 and id_visit = 5"):
         print(value)
     #37
     print()
@@ -273,7 +273,7 @@ def sql_50_insert_update_delete(con):
         print(value)
     #38
     print()
-    for value in cursorObj.execute("SELECT * FROM list_of_animals"):
+    for value in cursorObj.execute("SELECT name, breed FROM list_of_animals WHERE id_host = 4"):
         print(value)
     #39
     print()
@@ -288,35 +288,34 @@ def sql_50_insert_update_delete(con):
     cursorObj.execute('DELETE FROM assigned_proced WHERE id_proced = 5')
     #42
     print()
-    cursorObj.execute('DELETE FROM med_history WHERE id_med = 2')
+    cursorObj.execute('DELETE FROM med_history WHERE illness_date = "2022-12-31"')
     #43
     print()
-    cursorObj.execute('DELETE FROM recipes WHERE id_re = 2')
+    cursorObj.execute('DELETE FROM recipes WHERE id_re = 2 and id_visit = 2')
     #44
     print()
-    cursorObj.execute('DELETE FROM analyzes WHERE id_ana = 1')
+    cursorObj.execute('DELETE FROM analyzes WHERE id_ana = 1 and analysis_result = "Normal" and id_visit = 1')
     #45
     print()
-    cursorObj.execute('DELETE FROM vaccinations WHERE id_vac = 5')
+    cursorObj.execute('DELETE FROM vaccinations WHERE id_vac = 5 OR id_vac = 1 OR id_vac = 2')
     #46
     print()
-    for value in cursorObj.execute("SELECT * FROM vaccinations"):
+    for value in cursorObj.execute("SELECT id_vac FROM vaccinations WHERE vaccination_name = 'Complex vaccination of dogs'"):
         print(value)
     #47
     print()
-    for value in cursorObj.execute("SELECT * FROM analyzes"):
-        print(value)
+    print(cursorObj.execute("SELECT id_tre,date_treatment FROM treatment WHERE id_tre = 2").rowcount)
     #48
     print()
-    for value in cursorObj.execute("SELECT * FROM recipes"):
+    for value in cursorObj.execute("SELECT id_re, id_visit FROM recipes WHERE id_re = 2"):
         print(value)
     #49
     print()
-    for value in cursorObj.execute("SELECT * FROM med_history"):
+    for value in cursorObj.execute("SELECT id_med, id_an, diseases_name FROM med_history WHERE illness_date > '2023-01-01'"):
         print(value)
     #50
     print()
-    for value in cursorObj.execute("SELECT * FROM assigned_proced"):
+    for value in cursorObj.execute("SELECT * FROM assigned_proced INNER JOIN visit_logs ON assigned_proced.id_visit = visit_logs.id_visit WHERE id_proced = 2"):
         print(value)
     con.commit()
 

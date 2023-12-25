@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Select all</title>
+</head>
+<body>
+    <h1>Вывод всех строк!</h1>
+    <form method="post">
+        {% csrf_token %}
+    <button>Back</button>
+    {% for p in data %}
+        <li>{{p.id}}, {{p.first_name}}, {{p.last_name}}, {{p.address}}, {{p.phone}}</li>
+    {% endfor %}
+</body>
+</html>

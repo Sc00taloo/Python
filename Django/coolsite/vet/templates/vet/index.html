@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Добро пожаловать!</title>
+</head>
+<body>
+        <h1>База данных Ветеринарная клиника</h1>
+        {% if request.user.is_authenticated %}
+        <a>{{user.username}}</a> | <a href="{% url 'logout' %}">Выйти</a>
+        <form action="/hosts">
+        <button>Hosts</button>
+        </form>
+        <form action="/animals">
+        <button>Animals</button>
+        </form>
+        <form action="/diseasis">
+        <button>Diseases</button>
+        </form>
+        <button name="table" value="visit">Visit logs</button>
+        <button name="table" value="treatment">Treatment</button>
+        {% else %}
+        <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Вход</a>
+        {% endif %}
+</body>
+</html>
